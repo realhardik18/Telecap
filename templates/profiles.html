@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/icon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.18.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="navbar bg-neutral text-neutral-content">
+        <a href='/' class="btn btn-ghost normal-case text-xl">TeleCap🧢</a>
+    </div>
+    <h1 style="font-size: 50px;margin-bottom:10px;color:white;">Profiles on this system</h1>
+    <h1 style="font-size: 30px;margin-bottom:10px;">Here are the profiles of different members for your device<a
+            href='/tracking' class="btn btn-wide btn-accent" style="margin-left: 50px;">Go to Tracking
+            mode(prototype)</a>
+    </h1>
+    <div class="overflow-x-auto w-full">
+        <table class="table w-full">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Time spent today</th>
+                    <th>Gender</th>
+                    <th>Limit Value</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(5) %}
+                <tr>
+                    <td>
+                        <div class="flex items-center space-x-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle w-12 h-12">
+                                    <img src="/static/{{data[i]['name']}}.jpg" alt="Avatar Tailwind CSS Component" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">{{data[i]['name']}}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        {{data[i]['total_time']//60}}m{{data[i]['total_time']%60}}s
+                    </td>
+                    <td>{{data[i]['gender']}}</td>
+                    <td>{{data[i]['threshold_time']//60}}m{{data[i]['threshold_time']%60}}s</td>
+                    <td>
+                        {% if data[i]['threshold_time']<data[i]['total_time'] %} <div class="badge badge-error">
+                            Time exceded!
+    </div>
+    {% else %}
+    <div class="badge badge-accent">
+        under limit
+    </div>
+    {% endif %}
+    </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+
+    </table>
+    </div>
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <div>
+            <p>Website Made By <a href="https://realhardik18.github.io">realhardik18</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>

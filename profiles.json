@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "name": "Preetham",
+            "gender": "male",
+            "threshold_time": 100,
+            "total_time": 1
+        },
+        {
+            "name": "Hardik",
+            "gender": "male",
+            "threshold_time": 5,
+            "total_time": 10
+        },
+        {
+            "name": "Ananya",
+            "gender": "female",
+            "threshold_time": 100,
+            "total_time": 0
+        },
+        {
+            "name": "Vedika",
+            "gender": "female",
+            "threshold_time": 5,
+            "total_time": 0
+        },
+        {
+            "name": "Samyak",
+            "gender": "male",
+            "threshold_time": 100,
+            "total_time": 7
+        }
+    ]
+}
